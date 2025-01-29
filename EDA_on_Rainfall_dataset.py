@@ -87,3 +87,6 @@ print(data_downsampled.shape)
 
 # Print the downsampled dataset
 print(data_downsampled)
+
+# Save the downsampled dataset to a new CSV file
+data_downsampled = data_downsampled.to_csv("./Rainfall-Prediction/downsampled_dataset.csv", index=False)
