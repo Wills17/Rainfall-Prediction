@@ -4,7 +4,11 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.utils import resample
-from Data_processing_and_cleaning import data
+
+# Load the preprocessed dataset
+# Ensure "Data_processing_and_cleaning.py" file has been run before runnning this 
+
+data = pd.read_csv("./preprocesssed_rainfall_dataset.csv")
 
 
 # Quick description of the dataset
@@ -18,13 +22,7 @@ print("\nColumns in dataset:\n", data.columns)
 plt.figure(figsize=(10,8))
 sns.heatmap(data.corr(), annot=True, cmap="coolwarm", fmt=".2f")
 plt.title("Correlation Heatmap of Rainfall Dataset")
-#plt.show()
-plt.close()
-
-
-# Set the style for seaborn plots
-sns.set_style("whitegrid")
-
+plt.show()
 
 # plot boxplots for each column in the dataset
 plt.figure(figsize=(18,10))
@@ -34,31 +32,45 @@ for i, column in enumerate(data.columns, 1):
     plt.subplot(4, 3, i)
     sns.boxplot(data[column])
     plt.title(f"Boxplot of {column}")
-    
 plt.tight_layout()
-#plt.show()
+plt.show()
 
 # Drop unnecessary columns from the dataset
 data = data.drop(columns=["maxtemp", "mintemp", "dewpoint"], axis=1)
 
-"""# Plot the distribution of the "temperature" column
+
+# Distribution of the "pressure" column
+sns.histplot(data["pressure"], kde=True, color="purple")
+plt.title("Distribution of Pressure")
+plt.xlabel("Pressure")
+plt.ylabel("Count") 
+plt.show()
+
+# Distribution of the "temperature" column
 sns.histplot(data["temperature"], kde=True, color="skyblue")
 plt.title("Distribution of Temperature")
 plt.xlabel("Temperature")
 plt.ylabel("Count")
-#plt.show()
+plt.show()
 
-# Visualize the value counts of the "rainfall" column
-plt.figure(figsize=(10,8))
-sns.countplot(data["rainfall"], order=data["rainfall"].value_counts().index, palette="viridis")
-plt.title("Value Counts of Rainfall")
-plt.xlabel("Rainfall")
+# Distribution of the "humidity" column
+sns.histplot(data["humidity"], kde=True, color="red")
+plt.title("Distribution of Humidity")
+plt.xlabel("Humidity")
 plt.ylabel("Count")
-plt.xticks(rotation=90)
-#plt.show()"""
+plt.show()
+
+# Distribution of the "windspeed" column
+sns.histplot(data["windspeed"], kde=True, color="green")
+plt.title("Distribution of Wind Speed")
+plt.xlabel("Windspeed")
+plt.ylabel("Count")
+plt.show()
+
 
 # Print the value counts of the "rainfall" column
-print(data["rainfall"].value_counts())
+print(data["rainfall"].value_counts()) 
+
 
 # separate "rainfall" column into minority and majority classes
 data_minority = data[data["rainfall"] == 0]
@@ -78,5 +90,8 @@ print("Shape of downsampled majority class:", data_majority_downsampled.shape)
 data_downsampled = pd.concat([data_minority, data_majority_downsampled])
 print(data_downsampled.shape)
 
-print(data_downsampled["rainfall"].value_counts())
+# Print the downsampled dataset
+print(data_downsampled)
 
+# save the downsampled dataset to a new CSV file
+data_downsampled.to_csv("./downsampled_rainfall_dataset.csv", index=False)
