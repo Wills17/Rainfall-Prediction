@@ -78,5 +78,3 @@ with open("RandomForestClassifier_model.pkl", "wb") as file:
     pickle.dump(RFC_model, file)
 
 print("Model saved successfully!")
-
-
