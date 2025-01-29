@@ -1,4 +1,4 @@
-day,pressure ,maxtemp,temparature,mintemp,dewpoint,humidity ,cloud ,rainfall,sunshine,         winddirection,windspeed
+day,pressure ,maxtemp,temperature,mintemp,dewpoint,humidity ,cloud ,rainfall,sunshine,         winddirection,windspeed
 1,1025.9,19.9,18.3,16.8,13.1,72,49,yes,9.3,80,26.3
 2,1022,21.7,18.9,17.2,15.6,81,83,yes,0.6,50,15.3
 3,1019.7,20.3,19.3,18,18.4,95,91,yes,0,40,14.2
