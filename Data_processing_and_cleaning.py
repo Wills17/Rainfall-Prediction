@@ -38,6 +38,3 @@ print(data.isnull().sum())
 data["rainfall"] = data["rainfall"].map({"no": 0, "yes": 1})
 print(data.head())
 
-
-# Save the preprocessed dataset to a new CSV file
-data.to_csv("./preprocesssed_rainfall_dataset.csv", index=False)   
