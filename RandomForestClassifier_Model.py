@@ -1,12 +1,16 @@
 # import libraries
 
 import numpy as np
+import pandas as pd
 from sklearn.model_selection import train_test_split
-from EDA_on_Rainfall_dataset import data_downsampled
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, cross_val_score
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
+
+# Load the downsampled data.
+# Ensure "EDA_on_Rainfall_dataset.py" file has been run before runnning this 
+data_downsampled = pd.read_csv("data_downsampled.csv")
 
 
 X = data_downsampled.drop(columns=["rainfall"], axis=1)
@@ -15,8 +19,8 @@ y = data_downsampled["rainfall"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 RFC_model = RandomForestClassifier(random_state=42)
 
-"""Model Training"""
 
+""" Training Model"""
 # Define the parameter grid for RandomForestClassifier
 param_grid_rf = {
     "n_estimators": [50, 100, 200],
@@ -50,15 +54,16 @@ print("Test set Confusion Matrix: \n", confusion_matrix(y_test, y_pred))
 print("Test set Classification Report: \n", classification_report(y_test, y_pred))
 
 
-"""Prediction on Unknown data"""
+
+"""Test on Random data"""
 # Prediction on unknown data
-unknown_data = (1021.8, 10.4, 78, 88, 20, 50.0, 28.8)
+random_data = (1021.8, 10.4, 78, 88, 20, 50.0, 28.8)
 
 # Reshape the data to match the model's expected input
-unknown_data = np.array(unknown_data).reshape(1, -1)
+random_data = np.array(random_data).reshape(1, -1)
 
 # Make a prediction using the best Random Forest model
-prediction = Best_RFC_model.predict(unknown_data)
+prediction = Best_RFC_model.predict(random_data)
 
 if prediction == 0:
     print("Prediction result: ", "No Rainfall")
