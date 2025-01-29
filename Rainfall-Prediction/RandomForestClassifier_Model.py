@@ -2,13 +2,16 @@
 
 import numpy as np
 import pandas as pd
+import pickle  
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, cross_val_score
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
-from EDA_on_Rainfall_dataset import data_downsampled
 
+# Load the downsampled dataset
+data_downsampled = pd.read_csv("./Rainfall-Prediction/downsampled_dataset.csv")
 
+# split dataset into features and target variable
 X = data_downsampled.drop(columns=["rainfall"], axis=1)
 y = data_downsampled["rainfall"]
 
@@ -34,8 +37,8 @@ GridSearchCV_RFC.fit(X_train, y_train)
 Best_RFC_model = GridSearchCV_RFC.best_estimator_
 print("Best parameters for Random Forest: ", GridSearchCV_RFC.best_params_)
 
-"""Model Evaluation"""
 
+"""Model Evaluation"""
 # Perform cross-validation on the training set
 cv_scores = cross_val_score(Best_RFC_model, X_train, y_train, cv=5)
 print("Cross-validation scores for Random Forest Classifier: ", cv_scores)
@@ -48,7 +51,6 @@ y_pred = Best_RFC_model.predict(X_test)
 print("Test set Accuracy: ", accuracy_score(y_test, y_pred))
 print("Test set Confusion Matrix: \n", confusion_matrix(y_test, y_pred))
 print("Test set Classification Report: \n", classification_report(y_test, y_pred))
-
 
 
 """Test on Random data"""
@@ -67,11 +69,8 @@ else:
     print("Prediction result: ", "Rainfall")
     
     
-    
-    
-"""Save the model"""
-# Import pickle module to serialize and save the model to a file
-import pickle  
+"""Save model"""
+# Save the model to a file
 RFC_model = {"model": Best_RFC_model, "feature_names": X.columns.tolist()} 
 
 with open("RandomForestClassifier_model.pkl", "wb") as file:
