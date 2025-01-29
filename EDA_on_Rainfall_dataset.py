@@ -4,12 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.utils import resample
-
-# Load the preprocessed dataset
-# Ensure "Data_processing_and_cleaning.py" file has been run before runnning this 
-
-data = pd.read_csv("./preprocesssed_rainfall_dataset.csv")
-
+from Data_processing_and_cleaning import data
 
 # Quick description of the dataset
 print("\nQuick description:\n", data.describe())
@@ -92,6 +87,3 @@ print(data_downsampled.shape)
 
 # Print the downsampled dataset
 print(data_downsampled)
-
-# save the downsampled dataset to a new CSV file
-data_downsampled.to_csv("./downsampled_rainfall_dataset.csv", index=False)
