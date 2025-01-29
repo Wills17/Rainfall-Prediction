@@ -1,5 +1,9 @@
 # import libraries
 
+import os
+print("Current Directory:", os.getcwd())
+
+
 import numpy as np
 import pandas as pd
 import pickle  
@@ -68,12 +72,11 @@ if prediction == 0:
 else:
     print("Prediction result: ", "Rainfall")
     
-    
-"""Save model"""
+
 # Save the model to a file
 RFC_model = {"model": Best_RFC_model, "feature_names": X.columns.tolist()} 
 
-with open("RandomForestClassifier_model.pkl", "wb") as file:
+with open("./Rainfall-Prediction/RandomForestClassifier_model.pkl", "wb") as file:
     pickle.dump(RFC_model, file)
 
 print("Model saved successfully!")
