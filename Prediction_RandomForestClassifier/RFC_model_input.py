@@ -1,11 +1,11 @@
 #import libraries
-
 import pickle
 import numpy as np
-
+import warnings
+warnings.filterwarnings('ignore')
 
 # Load the model from the file
-with open("./Rainfall-Prediction/RandomForestClassifier_model.pkl", "rb") as file:
+with open("./Prediction_RandomForestClassifier/RandomForestClassifier_model.pkl", "rb") as file:
     RFC_model = pickle.load(file)
     
 model = RFC_model["model"]
@@ -19,8 +19,9 @@ def catcherror(user_input, feature):
     try:
         value = float(input(f"Enter value for {feature}: "))
         user_input.append(value)
+        print("Valid input!\n")
     except ValueError:
-        print(f"\nInvalid input for {feature}. Please enter a numeric value.")
+        print(f"Invalid input for {feature}. Please enter a numeric value.")
         catcherror(user_input, feature)
 
 while True:
@@ -40,7 +41,7 @@ while True:
         print("Prediction result: ", "Rainfall\n")
     
     repeat = input("Do you want to enter new values? (yes/no): \n").strip().lower()
-    if repeat != 'yes':
+    if repeat != 'yes' or repeat != 'y':
         break
     
 print("Exiting the model. Goodbye!")

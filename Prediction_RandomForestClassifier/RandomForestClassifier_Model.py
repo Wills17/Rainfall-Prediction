@@ -1,5 +1,4 @@
 # import libraries
-
 import numpy as np
 import pandas as pd
 import pickle  
@@ -7,9 +6,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, cross_val_score
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+import warnings
+warnings.filterwarnings('ignore')
 
 # Load the downsampled dataset
-data_downsampled = pd.read_csv("./Rainfall-Prediction/downsampled_dataset.csv")
+data_downsampled = pd.read_csv("./Datasets/downsampled_dataset.csv")
 
 # split dataset into features and target variable
 X = data_downsampled.drop(columns=["rainfall"], axis=1)
