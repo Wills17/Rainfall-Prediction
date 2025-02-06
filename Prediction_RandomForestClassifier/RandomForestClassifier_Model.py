@@ -1,9 +1,5 @@
 # import libraries
 
-import os
-print("Current Directory:", os.getcwd())
-
-
 import numpy as np
 import pandas as pd
 import pickle  
@@ -23,7 +19,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 RFC_model = RandomForestClassifier(random_state=42)
 
 
-""" Training Model"""
+"""Training Model"""
 # Define the parameter grid for RandomForestClassifier
 param_grid_rf = {
     "n_estimators": [50, 100, 200],
@@ -52,9 +48,9 @@ print("Mean cross-validation score for Random Forest Classifier: ", cv_scores.me
 y_pred = Best_RFC_model.predict(X_test)
 
 # evaluate model's accuracy on the test set
-print("Test set Accuracy: ", accuracy_score(y_test, y_pred))
-print("Test set Confusion Matrix: \n", confusion_matrix(y_test, y_pred))
-print("Test set Classification Report: \n", classification_report(y_test, y_pred))
+print("\nTest set Accuracy: ", accuracy_score(y_test, y_pred))
+print("\nTest set Confusion Matrix: \n", confusion_matrix(y_test, y_pred))
+print("\nTest set Classification Report: \n", classification_report(y_test, y_pred))
 
 
 """Test on Random data"""
@@ -76,7 +72,7 @@ else:
 # Save the model to a file
 RFC_model = {"model": Best_RFC_model, "feature_names": X.columns.tolist()} 
 
-with open("./Rainfall-Prediction/RandomForestClassifier_model.pkl", "wb") as file:
+with open("./Prediction_RandomForestClassifier/RandomForestClassifier_model.pkl", "wb") as file:
     pickle.dump(RFC_model, file)
 
 print("Model saved successfully!")
