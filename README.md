@@ -7,7 +7,9 @@ This project aims to predict rainfall using various machine learning models. The
 - `Data_processing_and_cleaning.py`: Script for loading, cleaning, and preprocessing the dataset.
 - `EDA_on_Rainfall_dataset.py`: Script for exploratory data analysis (EDA) on the dataset.
 - `RandomForestClassifier_Model.py`: Script for training a Random Forest Classifier model.
-- `RFC_model_input.py`: Script for loading the trained model and making predictions based on user input.
+- `RFC_model_input.py`: Script for loading the trained Random Forest model and making predictions based on user input.
+- `LogisticRegression_Model.py`: Script for training a Logistic Regression model.
+- `LR_model_input.py`: Script for loading the trained Logistic Regression model and making predictions based on user input.
 - `Rainfall_dataset.csv`: The original dataset containing weather-related features and the target variable.
 
 ## Setup Instructions
@@ -44,11 +46,19 @@ This project aims to predict rainfall using various machine learning models. The
     ```sh
     python RandomForestClassifier_Model.py
     ```
+    Train the Logistic Regression model using the preprocessed dataset.
+    ```sh
+    python LogisticRegression_Model.py
+    ```
 
 4. **Model Prediction**:
-    Use the trained model to make predictions based on user input.
+    Use the trained Random Forest model to make predictions based on user input.
     ```sh
     python RFC_model_input.py
+    ```
+    Use the trained Logistic Regression model to make predictions based on user input.
+    ```sh
+    python LR_model_input.py
     ```
 
 ## Scripts Description
@@ -68,7 +78,17 @@ This project aims to predict rainfall using various machine learning models. The
     - Evaluates the model and saves the best model to a file.
 
 - **RFC_model_input.py**:
-    - Loads the trained model.
+    - Loads the trained Random Forest model.
+    - Takes user input for prediction.
+    - Outputs the prediction result (Rainfall or No Rainfall).
+
+- **LogisticRegression_Model.py**:
+    - Trains a Logistic Regression model.
+    - Uses GridSearchCV for hyperparameter tuning.
+    - Evaluates the model and saves the best model to a file.
+
+- **LR_model_input.py**:
+    - Loads the trained Logistic Regression model.
     - Takes user input for prediction.
     - Outputs the prediction result (Rainfall or No Rainfall).
 
@@ -91,3 +111,4 @@ The dataset `Rainfall_dataset.csv` contains the following columns:
 ## License
 
 This project is licensed under the MIT License.
+
