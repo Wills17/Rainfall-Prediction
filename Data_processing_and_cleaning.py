@@ -3,7 +3,7 @@ import pandas as pd
 
 # Load the dataset
 """Data Collection and Processing"""
-data = pd.read_csv('./Rainfall_dataset.csv')
+data = pd.read_csv('./Datasets/Rainfall_dataset.csv')
 print(data)
 
 # print the (unique) values in the "day" column

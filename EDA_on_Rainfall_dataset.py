@@ -95,4 +95,4 @@ print(data_downsampled.shape)
 print(data_downsampled)
 
 # Save the downsampled dataset to a new CSV file
-data_downsampled = data_downsampled.to_csv("./Rainfall-Prediction/downsampled_dataset.csv", index=False)
+data_downsampled = data_downsampled.to_csv("./Datasets/downsampled_dataset.csv", index=False)
