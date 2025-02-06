@@ -10,6 +10,8 @@ This project aims to predict rainfall using various machine learning models. The
 - `RFC_model_input.py`: Script for loading the trained Random Forest model and making predictions based on user input.
 - `LogisticRegression_Model.py`: Script for training a Logistic Regression model.
 - `LR_model_input.py`: Script for loading the trained Logistic Regression model and making predictions based on user input.
+- `XGBoostClassifier_Model.py`: Script for training an XGBoost Classifier model.
+- `XGB_model_input.py`: Script for loading the trained XGBoost model and making predictions based on user input.
 - `Rainfall_dataset.csv`: The original dataset containing weather-related features and the target variable.
 
 ## Setup Instructions
@@ -50,6 +52,10 @@ This project aims to predict rainfall using various machine learning models. The
     ```sh
     python LogisticRegression_Model.py
     ```
+    Train the XGBoost Classifier model using the preprocessed dataset.
+    ```sh
+    python XGBoostClassifier_Model.py
+    ```
 
 4. **Model Prediction**:
     Use the trained Random Forest model to make predictions based on user input.
@@ -59,6 +65,10 @@ This project aims to predict rainfall using various machine learning models. The
     Use the trained Logistic Regression model to make predictions based on user input.
     ```sh
     python LR_model_input.py
+    ```
+    Use the trained XGBoost model to make predictions based on user input.
+    ```sh
+    python XGB_model_input.py
     ```
 
 ## Scripts Description
@@ -89,6 +99,16 @@ This project aims to predict rainfall using various machine learning models. The
 
 - **LR_model_input.py**:
     - Loads the trained Logistic Regression model.
+    - Takes user input for prediction.
+    - Outputs the prediction result (Rainfall or No Rainfall).
+
+- **XGBoostClassifier_Model.py**:
+    - Trains an XGBoost Classifier model.
+    - Uses GridSearchCV for hyperparameter tuning.
+    - Evaluates the model and saves the best model to a file.
+
+- **XGB_model_input.py**:
+    - Loads the trained XGBoost model.
     - Takes user input for prediction.
     - Outputs the prediction result (Rainfall or No Rainfall).
 
