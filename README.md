@@ -108,7 +108,4 @@ The dataset `Rainfall_dataset.csv` contains the following columns:
 - `winddirection`: Wind direction.
 - `windspeed`: Wind speed.
 
-## License
-
-This project is licensed under the MIT License.
 
