@@ -15,7 +15,7 @@ print("\nColumns in dataset:\n", data.columns)
 
 # plot correlation heatmap of the dataset
 plt.figure(figsize=(10,8))
-sns.heatmap(data.corr(), annot=True, cmap="coolwarm", fmt=".2f")
+sns.heatmap(data.corr(), annot=True, cmap="coolwarm", cbar="False", fmt=".2f")
 plt.title("Correlation Heatmap of Rainfall Dataset")
 plt.show()
 
@@ -62,9 +62,15 @@ plt.xlabel("Windspeed")
 plt.ylabel("Count")
 plt.show()
 
-
 # Print the value counts of the "rainfall" column
 print(data["rainfall"].value_counts()) 
+
+# Pie chart plot of the "rainfall" column value counts
+plt.pie(data['rainfall'].value_counts().values,
+    labels=data['rainfall'].value_counts().index,
+    autopct='%1.1f%%')
+plt.title("Rainfall Distribution")
+plt.show()
 
 
 # separate "rainfall" column into minority and majority classes
