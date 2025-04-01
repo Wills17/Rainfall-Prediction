@@ -73,7 +73,7 @@ else:
 # Save the model to a file
 RFC_model = {"model": Best_RFC_model, "feature_names": X.columns.tolist()} 
 
-with open("./Prediction_RandomForestClassifier/RandomForestClassifier_model.pkl", "wb") as file:
+with open("./Prediction_RandomForest/RandomForest_model.pkl", "wb") as file:
     pickle.dump(RFC_model, file)
 
 print("Model saved successfully!")
