@@ -6,13 +6,13 @@ This project aims to predict rainfall using various machine learning models. The
 
 - `Data_processing_and_cleaning.py`: Script for loading, cleaning, and preprocessing the dataset.
 - `EDA_on_Rainfall_dataset.py`: Script for exploratory data analysis (EDA) on the dataset.
-- `RandomForestClassifier_Model.py`: Script for training a Random Forest Classifier model.
+- `RandomForest_Model.py`: Script for training a Random Forest Classifier model.
 - `RFC_model_input.py`: Script for loading the trained Random Forest model and making predictions based on user input.
 - `LogisticRegression_Model.py`: Script for training a Logistic Regression model.
 - `LR_model_input.py`: Script for loading the trained Logistic Regression model and making predictions based on user input.
-- `XGBoostClassifier_Model.py`: Script for training an XGBoost Classifier model.
-- `XGB_model_input.py`: Script for loading the trained XGBoost model and making predictions based on user input.
+- `Application.py`: Flask-based web application for rainfall prediction using trained models.
 - `Rainfall_dataset.csv`: The original dataset containing weather-related features and the target variable.
+- `processed_dataset.csv`: The downsampled and processed dataset used for training models.
 
 ## Setup Instructions
 
@@ -27,7 +27,7 @@ This project aims to predict rainfall using various machine learning models. The
     pip install -r requirements.txt
     ```
 
-3. Ensure you have the dataset file `Rainfall_dataset.csv` in the project directory.
+3. Ensure you have the dataset file `Rainfall_dataset.csv` in the `Datasets` directory.
 
 ## Usage
 
@@ -46,30 +46,29 @@ This project aims to predict rainfall using various machine learning models. The
 3. **Model Training**:
     Train the Random Forest Classifier model using the preprocessed dataset.
     ```sh
-    python RandomForestClassifier_Model.py
+    python Prediction_RandomForest/RandomForest_Model.py
     ```
     Train the Logistic Regression model using the preprocessed dataset.
     ```sh
-    python LogisticRegression_Model.py
-    ```
-    Train the XGBoost Classifier model using the preprocessed dataset.
-    ```sh
-    python XGBoostClassifier_Model.py
+    python Prediction_LogisticRegression/LogisticRegression_Model.py
     ```
 
 4. **Model Prediction**:
     Use the trained Random Forest model to make predictions based on user input.
     ```sh
-    python RFC_model_input.py
+    python Prediction_RandomForest/RFC_model_input.py
     ```
     Use the trained Logistic Regression model to make predictions based on user input.
     ```sh
-    python LR_model_input.py
+    python Prediction_LogisticRegression/LR_model_input.py
     ```
-    Use the trained XGBoost model to make predictions based on user input.
+
+5. **Web Application**:
+    Launch the Flask-based web application for rainfall prediction.
     ```sh
-    python XGB_model_input.py
+    python Application.py
     ```
+    Access the application at `http://127.0.0.1:5000/` in your web browser.
 
 ## Scripts Description
 
@@ -82,7 +81,7 @@ This project aims to predict rainfall using various machine learning models. The
     - Visualizes data distributions and correlations.
     - Downsamples the majority class to balance the dataset.
 
-- **RandomForestClassifier_Model.py**:
+- **RandomForest_Model.py**:
     - Trains a Random Forest Classifier model.
     - Uses GridSearchCV for hyperparameter tuning.
     - Evaluates the model and saves the best model to a file.
@@ -102,15 +101,9 @@ This project aims to predict rainfall using various machine learning models. The
     - Takes user input for prediction.
     - Outputs the prediction result (Rainfall or No Rainfall).
 
-- **XGBoostClassifier_Model.py**:
-    - Trains an XGBoost Classifier model.
-    - Uses GridSearchCV for hyperparameter tuning.
-    - Evaluates the model and saves the best model to a file.
-
-- **XGB_model_input.py**:
-    - Loads the trained XGBoost model.
-    - Takes user input for prediction.
-    - Outputs the prediction result (Rainfall or No Rainfall).
+- **Application.py**:
+    - Flask-based web application for rainfall prediction.
+    - Allows users to input weather features and get predictions from trained models.
 
 ## Dataset
 
@@ -128,4 +121,4 @@ The dataset `Rainfall_dataset.csv` contains the following columns:
 - `winddirection`: Wind direction.
 - `windspeed`: Wind speed.
 
-
+The processed dataset `processed_dataset.csv` is the cleaned and downsampled version of the original dataset, used for training machine learning models.
