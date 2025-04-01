@@ -5,7 +5,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Load the model from the file
-with open("./Prediction_RandomForestClassifier/RandomForestClassifier_model.pkl", "rb") as file:
+with open("./Prediction_RandomForest/RandomForest_model.pkl", "rb") as file:
     RFC_model = pickle.load(file)
     
 model = RFC_model["model"]
