@@ -1,16 +1,8 @@
-#import libraries
-from flask import Flask, request, jsonify
-import pickle
-import numpy as np
-import warnings
-warnings.filterwarnings('ignore')
-import random
-
-
-
+# import libraries
 import pickle
 from flask import Flask, request, jsonify, render_template
 import numpy as np
+import random
 
 app = Flask(__name__)
 
