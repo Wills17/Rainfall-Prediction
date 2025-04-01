@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainfall Prediction</title>
+</head>
+<body>
+    <h2>Rainfall Prediction Model</h2>
+    <p>Welcome to the Rainfall Prediction Model! Use this tool to predict rainfall based on various weather features.</p>
+    <form action="/predict" method="POST">
+        <label for="temp">Temperature:</label>
+        <input type="text" name="temp" required><br><br>
+
+        <label for="rainfall">Rainfall:</label>
+        <input type="text" name="rainfall" required><br><br>
+
+        <label for="humidity">Humidity:</label>
+        <input type="text" name="humidity" required><br><br>
+
+        <label for="wind_speed">Wind Speed:</label>
+        <input type="text" name="wind_speed" required><br><br>
+
+        <label for="wind_dir">Wind Direction:</label>
+        <input type="text" name="wind_dir" required><br><br>
+
+        <label for="pressure">Pressure:</label>
+        <input type="text" name="pressure" required><br><br>
+
+        <label for="visibility">Visibility:</label>
+        <input type="text" name="visibility" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>
