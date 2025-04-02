@@ -10,7 +10,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Load the downsampled dataset
-data_downsampled = pd.read_csv("./Datasets/downsampled_dataset.csv")
+data_downsampled = pd.read_csv("./Datasets/processed_dataset.csv")
 
 # split dataset into features and target variable
 X = data_downsampled.drop(columns=["rainfall"], axis=1)
