@@ -11,27 +11,39 @@
     <form action="/predict" method="POST">
         <label for="pressure">Pressure:</label>
         <input type="text" name="pressure" required><br><br>
+        
 
         <label for="temp">Temperature:</label>
         <input type="text" name="temp" required><br><br>
+        
 
         <label for="humidity">Humidity:</label>
         <input type="text" name="humidity" required><br><br>
+        
 
         <label for="cloud">Cloud:</label>
         <input type="text" name="cloud" required><br><br>
+        
 
         <label for="sunshine">Susnshine:</label>
         <input type="text" name="sunshine" required><br><br>
+        
 
         <label for="wind_dir">Wind Direction:</label>
         <input type="text" name="wind_dir" required><br><br>
         
+        
         <label for="wind_speed">Wind Speed:</label>
         <input type="text" name="wind_speed" required><br><br>
 
+
+        <!-- Display error message if 'error' variable is set -->
+        {% if error %}
+        <p style="color: red;">{{ error }}</p>
+        {% endif %}
         <input type="submit" value="Predict">
     </form>
+    
 
     <h3>{{ prediction_text }}</h3>
 </body>
