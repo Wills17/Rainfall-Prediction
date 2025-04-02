@@ -1,124 +1,150 @@
-# Rainfall Prediction with Various Machine Learning Models
+# Rainfall Prediction with Machine Learning Models
 
-This project aims to predict rainfall using various machine learning models. The dataset used contains weather-related features, and the target variable is whether it rained or not.
+This project aims to predict rainfall using multiple machine learning models. The dataset comprises weather-related features, with the target variable indicating whether it rained or not.
 
 ## Project Structure
 
-- `Data_processing_and_cleaning.py`: Script for loading, cleaning, and preprocessing the dataset.
-- `EDA_on_Rainfall_dataset.py`: Script for exploratory data analysis (EDA) on the dataset.
-- `RandomForest_Model.py`: Script for training a Random Forest Classifier model.
-- `RFC_model_input.py`: Script for loading the trained Random Forest model and making predictions based on user input.
-- `LogisticRegression_Model.py`: Script for training a Logistic Regression model.
-- `LR_model_input.py`: Script for loading the trained Logistic Regression model and making predictions based on user input.
-- `Application.py`: Flask-based web application for rainfall prediction using trained models.
-- `Rainfall_dataset.csv`: The original dataset containing weather-related features and the target variable.
-- `processed_dataset.csv`: The downsampled and processed dataset used for training models.
+The repository contains the following files and directories:
 
-## Setup Instructions
+- **Datasets/**: Directory containing the dataset files used for training and evaluation.
 
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/yourusername/Rainfall-prediction-with-various-Machine-Learning-models.git
-    cd Rainfall-prediction-with-various-Machine-Learning-models
-    ```
+- **Prediction_LogisticRegression/**: Directory containing scripts and models related to rainfall prediction using Logistic Regression.
 
-2. Install the required dependencies:
-    ```sh
-    pip install -r requirements.txt
-    ```
+- **Prediction_RandomForest/**: Directory containing scripts and models related to rainfall prediction using Random Forest.
 
-3. Ensure you have the dataset file `Rainfall_dataset.csv` in the `Datasets` directory.
+- **templates/**: Directory containing HTML templates for the web application interface.
 
-## Usage
+- **Application.py**: Main script to run the Flask web application for rainfall prediction.
 
-1. **Data Processing and Cleaning**:
-    Run the script to clean and preprocess the dataset.
-    ```sh
-    python Data_processing_and_cleaning.py
-    ```
+- **Data_processing_and_cleaning.py**: Script for loading, cleaning, and preprocessing the dataset.
 
-2. **Exploratory Data Analysis (EDA)**:
-    Perform EDA on the dataset to understand the data distribution and relationships.
-    ```sh
-    python EDA_on_Rainfall_dataset.py
-    ```
+- **EDA_on_Rainfall_dataset.py**: Script for performing exploratory data analysis (EDA) on the dataset.
 
-3. **Model Training**:
-    Train the Random Forest Classifier model using the preprocessed dataset.
-    ```sh
-    python Prediction_RandomForest/RandomForest_Model.py
-    ```
-    Train the Logistic Regression model using the preprocessed dataset.
-    ```sh
-    python Prediction_LogisticRegression/LogisticRegression_Model.py
-    ```
+- **README.md**: This file, providing an overview of the project and instructions for usage.
 
-4. **Model Prediction**:
-    Use the trained Random Forest model to make predictions based on user input.
-    ```sh
-    python Prediction_RandomForest/RFC_model_input.py
-    ```
-    Use the trained Logistic Regression model to make predictions based on user input.
-    ```sh
-    python Prediction_LogisticRegression/LR_model_input.py
-    ```
+## Setup and Installation
 
-5. **Web Application**:
-    Launch the Flask-based web application for rainfall prediction.
-    ```sh
-    python Application.py
-    ```
-    Access the application at `http://127.0.0.1:5000/` in your web browser.
+To set up the project on your local machine, follow these steps:
 
-## Scripts Description
+1. **Clone the Repository**:
 
-- **Data_processing_and_cleaning.py**:
-    - Loads the dataset.
-    - Cleans and preprocesses the data by handling missing values and dropping unnecessary columns.
+   ```bash
+   git clone https://github.com/Wills17/Rainfall-prediction-with-various-Machine-Learning-models.git
+   ```
+
 
-- **EDA_on_Rainfall_dataset.py**:
-    - Performs exploratory data analysis.
-    - Visualizes data distributions and correlations.
-    - Downsamples the majority class to balance the dataset.
+2. **Navigate to the Project Directory**:
 
-- **RandomForest_Model.py**:
-    - Trains a Random Forest Classifier model.
-    - Uses GridSearchCV for hyperparameter tuning.
-    - Evaluates the model and saves the best model to a file.
+   ```bash
+   cd Rainfall-prediction-with-Machine-Learning-models
+   ```
+
 
-- **RFC_model_input.py**:
-    - Loads the trained Random Forest model.
-    - Takes user input for prediction.
-    - Outputs the prediction result (Rainfall or No Rainfall).
+3. **Install Required Dependencies**:
 
-- **LogisticRegression_Model.py**:
-    - Trains a Logistic Regression model.
-    - Uses GridSearchCV for hyperparameter tuning.
-    - Evaluates the model and saves the best model to a file.
+   Ensure you have Python installed. It's recommended to use a virtual environment:
 
-- **LR_model_input.py**:
-    - Loads the trained Logistic Regression model.
-    - Takes user input for prediction.
-    - Outputs the prediction result (Rainfall or No Rainfall).
+   ```bash
+   python3 -m venv env
+   source env/bin/activate  # On Windows, use 'env\Scripts\activate'
+   ```
 
-- **Application.py**:
-    - Flask-based web application for rainfall prediction.
-    - Allows users to input weather features and get predictions from trained models.
+   Then, install the necessary packages:
 
-## Dataset
+   ```bash
+   pip install -r requirements.txt
+   ```
+
 
-The dataset `Rainfall_dataset.csv` contains the following columns:
-- `day`: Day of the observation.
-- `pressure`: Atmospheric pressure.
-- `maxtemp`: Maximum temperature.
-- `temperature`: Average temperature.
-- `mintemp`: Minimum temperature.
-- `dewpoint`: Dew point temperature.
-- `humidity`: Humidity percentage.
-- `cloud`: Cloud cover percentage.
-- `rainfall`: Target variable (yes/no).
-- `sunshine`: Sunshine duration.
-- `winddirection`: Wind direction.
-- `windspeed`: Wind speed.
+## Data Processing and Cleaning
 
-The processed dataset `processed_dataset.csv` is the cleaned and downsampled version of the original dataset, used for training machine learning models.
+The `Data_processing_and_cleaning.py` script handles data loading and preprocessing:
+
+- **Loading Data**: Reads the dataset from the `Datasets/` directory.
+
+- **Handling Missing Values**: Identifies and addresses missing data through imputation or removal.
+
+- **Encoding Categorical Variables**: Converts categorical features into numerical representations suitable for machine learning models.
+
+- **Feature Scaling**: Standardizes or normalizes numerical features to ensure consistent scaling.
+
+## Exploratory Data Analysis (EDA)
+
+The `EDA_on_Rainfall_dataset.py` script provides insights into the dataset:
+
+- **Statistical Summaries**: Generates descriptive statistics for numerical and categorical features.
+
+- **Visualizations**: Creates plots such as histograms, scatter plots, and box plots to visualize data distributions and relationships.
+
+- **Correlation Analysis**: Examines correlations between features to identify potential predictors.
+
+## Model Training and Prediction
+
+Two primary models are implemented:
+
+1. **Random Forest Classifier**:
+
+   - *Training*: The `Prediction_RandomForest/RandomForest_Model.py` script trains a Random Forest model using the preprocessed data.
+
+   - *Prediction*: The `Prediction_RandomForest/RFC_model_input.py` script loads the trained model and makes predictions based on user input.
+
+2. **Logistic Regression**:
+
+   - *Training*: The `Prediction_LogisticRegression/LogisticRegression_Model.py` script trains a Logistic Regression model.
+
+   - *Prediction*: The `Prediction_LogisticRegression/LR_model_input.py` script loads the trained model and makes predictions based on user input.
+
+## Web Application
+
+A Flask-based web application is provided for user interaction:
+
+- **Running the Application**:
+
+   ```bash
+   python Application.py
+   ```
+
+
+   This starts a local web server, typically accessible at `http://127.0.0.1:5000/`.
+
+- **Using the Application**:
+
+   Users can input weather-related features through the web interface. The application processes this input and returns a prediction indicating the likelihood of rainfall.
+
+## How to Use
+
+1. **Data Preparation**:
+
+   - Place your dataset files in the `Datasets/` directory. Ensure they match the expected format used in the preprocessing scripts.
+
+2. **Preprocess the Data**:
+
+   - Run the `Data_processing_and_cleaning.py` script to clean and prepare the data for modeling.
+
+3. **Perform EDA (Optional but Recommended)**:
+
+   - Execute the `EDA_on_Rainfall_dataset.py` script to gain insights into the data and inform feature selection.
+
+4. **Train the Models**:
+
+   - For Random Forest: Run `Prediction_RandomForest/RandomForest_Model.py`.
+
+   - For Logistic Regression: Run `Prediction_LogisticRegression/LogisticRegression_Model.py`.
+
+5. **Make Predictions**:
+
+   - Use the respective model input scripts (`RFC_model_input.py` or `LR_model_input.py`) to input new data and obtain predictions.
+
+6. **Launch the Web Application**:
+
+   - Run `Application.py` to start the Flask web interface for more user-friendly interactions.
+
+## Notes
+
+- Ensure all dependencies listed in `requirements.txt` are installed.
+
+- Modify the scripts as needed to accommodate different datasets or additional features.
+
+- Regularly update the repository to incorporate improvements and additional functionalities.
+
+For further assistance or questions, please refer to the repository's issues section or contact the project maintainer. 
