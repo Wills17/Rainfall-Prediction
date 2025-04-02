@@ -6,18 +6,24 @@ import random
 
 app = Flask(__name__)
 
-# Load the pre-trained model (you can use your own model here)
+# Load either of the pre-trained model randomly
 random_model = random.choice([0, 1])
 if random_model == 0:
     # Load the model from the file
     with open("./Prediction_LogisticRegression/LogisticRegression_model.pkl", "rb") as file:
         print("You are using Logistic Regression model.")
         use_model = pickle.load(file)
+    
 else:
     with open("./Prediction_RandomForest/RandomForest_model.pkl", "rb") as file:
         print("You are using Random Forest model.")
         use_model = pickle.load(file)
                 
+
+# Extract the actual model object from the loaded dictionary
+use_model = use_model.get('model')
+
+
 # Home route to render an input form
 @app.route('/')
 def home():
