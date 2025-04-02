@@ -35,18 +35,18 @@ GridSearchCV_RFC = GridSearchCV(estimator=RFC_model, param_grid=param_grid_rf, c
 GridSearchCV_RFC.fit(X_train, y_train)
 
 # output the best model from GridSearch
-Best_RFC_model = GridSearchCV_RFC.best_estimator_
+Best_RF_model = GridSearchCV_RFC.best_estimator_
 print("Best parameters for Random Forest: ", GridSearchCV_RFC.best_params_)
 
 
 """Model Evaluation"""
 # Perform cross-validation on the training set
-cv_scores = cross_val_score(Best_RFC_model, X_train, y_train, cv=5)
+cv_scores = cross_val_score(Best_RF_model, X_train, y_train, cv=5)
 print("Cross-validation scores for Random Forest Classifier: ", cv_scores)
 print("Mean cross-validation score for Random Forest Classifier: ", cv_scores.mean())
 
 # Prediction the test set
-y_pred = Best_RFC_model.predict(X_test)
+y_pred = Best_RF_model.predict(X_test)
 
 # evaluate model's accuracy on the test set
 print("\nTest set Accuracy: ", accuracy_score(y_test, y_pred))
@@ -62,7 +62,7 @@ random_data = (1021.8, 10.4, 78, 88, 20, 50.0, 28.8)
 random_data = np.array(random_data).reshape(1, -1)
 
 # Make a prediction using the best Random Forest model output from GridSearch
-prediction = Best_RFC_model.predict(random_data)
+prediction = Best_RF_model.predict(random_data)
 
 if prediction == 0:
     print("Prediction result: ", "No Rainfall")
@@ -71,9 +71,9 @@ else:
     
 
 # Save the model to a file
-RFC_model = {"model": Best_RFC_model, "feature_names": X.columns.tolist()} 
+RF_model = {"model": Best_RF_model, "feature_names": X.columns.tolist()} 
 
 with open("./Prediction_RandomForest/RandomForest_model.pkl", "wb") as file:
-    pickle.dump(RFC_model, file)
+    pickle.dump(RF_model, file)
 
 print("Model saved successfully!")
