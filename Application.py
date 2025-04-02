@@ -19,7 +19,6 @@ else:
         print("You are using Random Forest model.")
         use_model = pickle.load(file)
                 
-
 # Extract the actual model object from the loaded dictionary
 use_model = use_model.get('model')
 
@@ -27,7 +26,7 @@ use_model = use_model.get('model')
 # Home route to render an input form
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('predict.html')
 
 # Prediction route to handle form submissions and make predictions
 @app.route('/predict', methods=['POST'])
@@ -41,7 +40,8 @@ def predict():
         prediction = use_model.predict(features_array)
         
         # Return the result
-        return render_template('index.html', prediction_text=f'Predicted Rainfall: {prediction[0]} mm')
+        result = "Rainfall Expected" if prediction[0] == 1 else "No Rainfall Expected"
+        return render_template('predict.html', prediction_text=result)
 
 if __name__ == "__main__":
     app.run(debug=True)
