@@ -11,6 +11,37 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .intro {
+                font-size: 1rem;
+            }
+
+            form {
+                grid-template-columns: 1fr;
+            }
+
+            input {
+                padding: 0.7rem;
+                font-size: 16px; /* Prevents iOS zoom */
+            }
+
+            input[type="submit"] {
+                padding: 0.8rem;
+                width: 100%;
+                margin-top: 1.5rem;
+            }
         }
 
         body {
