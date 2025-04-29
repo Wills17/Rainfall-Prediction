@@ -103,7 +103,6 @@ A Flask-based web application is provided for user interaction:
    python Application.py
    ```
 
-
    This starts a local web server, typically accessible at `http://127.0.0.1:5000/`.
 
 - **Using the Application**:
@@ -138,9 +137,6 @@ A Flask-based web application is provided for user interaction:
 
    - Run `Application.py` to start the Flask web interface for more user-friendly interactions.
 
-7. **Web Application (Demo)**:
-
-   - This link is an interactive demo of the above project.
 
 ## Notes
 
