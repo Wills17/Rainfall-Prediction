@@ -50,6 +50,8 @@ def predict():
             
         except ValueError:
             return render_template('predict.html', error="Invalid input! Please enter numbers only.")
+    else:
+        return render_template('predict.html')
             
 if __name__ == "__main__":
     app.run(debug=True)
