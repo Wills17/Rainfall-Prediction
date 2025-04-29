@@ -1,50 +1,235 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rainfall Prediction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #00c6fb 0%, #005bea 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: white;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        input {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(5px);
+        }
+
+        input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+            transform: translateX(5px) scale(1.02);
+        }
+
+        input[type="submit"] {
+            background: #00c6fb;
+            color: white;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            grid-column: 1 / -1;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background: #005bea;
+        }
+
+        input[type="submit"]::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+        }
+
+        input[type="submit"]:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .container {
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .input-group {
+            transition: all 0.3s ease;
+        }
+
+        .input-group:hover label {
+            transform: translateX(5px);
+            color: #00c6fb;
+        }
+
+        label {
+            transition: all 0.3s ease;
+        }
+
+        .error {
+            color: #ff6b6b;
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .prediction {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .home-link {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .home-link:hover {
+            text-decoration: underline;
+        }
+
+        ::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
 </head>
 <body>
-    <h2>Rainfall Prediction Model</h2>
-    <p>Welcome to the Rainfall Prediction Model! Use this tool to predict rainfall based on various weather features.</p>
-    <form action="/predict" method="POST">
-        <label for="pressure">Pressure:</label>
-        <input type="text" name="pressure" required><br><br>
+    <div class="container">
+        <h2>☔ Rainfall Prediction Model</h2>
+        <p class="intro">Enter the weather parameters below to get a rainfall prediction based on our machine learning model.</p>
         
+        <form action="/predict" method="POST">
+            <div class="input-group">
+                <label for="pressure">Pressure (hPa)</label>
+                <input type="text" name="pressure" placeholder="e.g., 1013.25" required>
+            </div>
 
-        <label for="temp">Temperature:</label>
-        <input type="text" name="temp" required><br><br>
-        
+            <div class="input-group">
+                <label for="temp">Temperature (°C)</label>
+                <input type="text" name="temp" placeholder="e.g., 25.5" required>
+            </div>
 
-        <label for="humidity">Humidity:</label>
-        <input type="text" name="humidity" required><br><br>
-        
+            <div class="input-group">
+                <label for="humidity">Humidity (%)</label>
+                <input type="text" name="humidity" placeholder="e.g., 65" required>
+            </div>
 
-        <label for="cloud">Cloud:</label>
-        <input type="text" name="cloud" required><br><br>
-        
+            <div class="input-group">
+                <label for="cloud">Cloud Cover (%)</label>
+                <input type="text" name="cloud" placeholder="e.g., 75" required>
+            </div>
 
-        <label for="sunshine">Susnshine:</label>
-        <input type="text" name="sunshine" required><br><br>
-        
+            <div class="input-group">
+                <label for="sunshine">Sunshine (hours)</label>
+                <input type="text" name="sunshine" placeholder="e.g., 8.5" required>
+            </div>
 
-        <label for="wind_dir">Wind Direction:</label>
-        <input type="text" name="wind_dir" required><br><br>
-        
-        
-        <label for="wind_speed">Wind Speed:</label>
-        <input type="text" name="wind_speed" required><br><br>
+            <div class="input-group">
+                <label for="wind_dir">Wind Direction (degrees)</label>
+                <input type="text" name="wind_dir" placeholder="e.g., 180" required>
+            </div>
 
+            <div class="input-group">
+                <label for="wind_speed">Wind Speed (km/h)</label>
+                <input type="text" name="wind_speed" placeholder="e.g., 15.5" required>
+            </div>
 
-        <!-- Display error message if 'error' variable is set -->
-        {% if error %}
-        <p style="color: red;">{{ error }}</p>
+            {% if error %}
+            <div class="error">{{ error }}</div>
+            {% endif %}
+
+            <input type="submit" value="Get Prediction">
+        </form>
+
+        {% if prediction_text %}
+        <div class="prediction">{{ prediction_text }}</div>
         {% endif %}
-        <input type="submit" value="Predict">
-    </form>
-    
 
-    <h3>{{ prediction_text }}</h3>
+        <a href="/" class="home-link">← Back to Home</a>
+    </div>
 </body>
 </html>
