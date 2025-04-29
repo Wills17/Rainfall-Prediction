@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,68 +6,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rainfall Prediction</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
+        body {
+            background: linear-gradient(135deg, #00c6fb 0%, #005bea 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
         header {
-            background-color: #6200ea;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            text-align: center;
             color: white;
-            padding: 20px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
+            font-size: 2.5rem;
             margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
+
         main {
-            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            color: white;
         }
-        .button-container {
-            margin-top: 20px;
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
         }
+
+        p {
+            font-size: 1.2rem;
+            margin: 1.5rem 0;
+            line-height: 1.6;
+        }
+
         .predict-button {
-            background-color: #6200ea;
+            background: #00c6fb;
             color: white;
+            padding: 1rem 2rem;
             border: none;
-            padding: 10px 20px;
-            font-size: 16px;
+            border-radius: 50px;
+            font-size: 1.2rem;
             cursor: pointer;
-            border-radius: 5px;
             text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
         }
+
         .predict-button:hover {
-            background-color: #3700b3;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: #005bea;
         }
+
+        .predict-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+        }
+
+        .predict-button:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .content-box {
+            transition: all 0.3s ease;
+        }
+
+        .content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
         footer {
-            background-color: #333;
+            background: rgba(0, 0, 0, 0.2);
             color: white;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to the Rainfall Prediction System</h1>
+        <h1>☔ Rainfall Prediction System</h1>
     </header>
     <main>
-        <p>Click the button below to go to the prediction page.</p>
-        <div class="button-container">
-            <a href="/predict_page" class="predict-button">Start Predicting</a>
+        <div class="content-box">
+            <p>Welcome to our advanced weather prediction system! Using cutting-edge machine learning models, we can help predict rainfall based on various weather parameters.</p>
+            <a href="/predict_page" class="predict-button">Start Predicting ➜</a>
+            <p>Get accurate rainfall predictions based on real-time weather data.</p>
         </div>
-        <br> </br>
-        <br> </br>
-        <p>Thank you for visiting. Stay tuned for updates!</p>
     </main>
-
     <footer>
-        <p>&copy; 2025 Our Project Team</p>
+        <p>&copy; 2025 Weather Prediction Team • Powered by ML • <a href="https://replit.com/@YourUsername/RainfallPrediction" target="_blank" style="color: white; text-decoration: underline; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">View Source</a></p>
     </footer>
 </body>
 </html>
-
