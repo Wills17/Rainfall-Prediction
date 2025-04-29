@@ -137,6 +137,16 @@ A Flask-based web application is provided for user interaction:
 
    - Run `Application.py` to start the Flask web interface for more user-friendly interactions.
 
+## Demo Website
+
+Explore the live demo of the rainfall prediction web application:
+
+[Rainfall Prediction Demo](https://wills17.pythonanywhere.com/)
+
+- Use the demo to input weather-related features and see real-time predictions.
+- Note: The demo is hosted on a free-tier server, so it may experience occasional downtime or slower response times.
+
+
 
 ## Notes
 
