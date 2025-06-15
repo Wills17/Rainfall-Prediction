@@ -1,4 +1,4 @@
-# Rainfall Prediction with Machine Learning Models
+# Rainfall Prediction
 
 This project aims to predict rainfall using multiple machine learning models. The dataset comprises weather-related features, with the target variable indicating whether it rained or not.
 
