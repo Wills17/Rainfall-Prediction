@@ -28,14 +28,14 @@ To set up the project on your local machine, follow these steps:
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/Wills17/Rainfall-prediction-with-Machine-Learning-models.git
+   git clone https://github.com/Wills17/Rainfall-prediction.git
    ```
 
 
 2. **Navigate to the Project Directory**:
 
    ```bash
-   cd Rainfall-prediction-with-Machine-Learning-models
+   cd Rainfall-prediction
    ```
 
 
