@@ -1,6 +1,6 @@
 # Rainfall Prediction
 
-This project aims to predict rainfall using multiple machine learning models. The dataset comprises weather-related features, with the target variable indicating whether it rained or not.
+This project aims to predict rainfall using machine learning models. The dataset comprises weather-related features, with the target variable indicating whether it rained or not.
 
 ## Project Structure
 
