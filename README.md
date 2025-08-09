@@ -154,6 +154,4 @@ Explore the live demo of the rainfall prediction web application:
 
 - Modify the scripts as needed to accommodate different datasets or additional features.
 
-- Regularly update the repository to incorporate improvements and additional functionalities.
-
 For further assistance or questions, please refer to the repository's issues section or contact the project maintainer. Thank you.
